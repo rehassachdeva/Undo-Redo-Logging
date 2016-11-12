@@ -54,6 +54,9 @@ def OneUndo(dA, dB, dC, dD):
 	lines.append(PrintTUpdate(3, "D", A, B, C, t3, D))
 	D = t3
 
+	lines.append(PrintTUpdate(2, "D", A, B, C, t1, D))
+	D = t1
+
 	lines.append("<commit T1>" + PrintVars(A, B, C, D))
 	lines.append("<commit T2>" + PrintVars(A, B, C, D))
 	lines.append("<commit T3>" + PrintVars(A, B, C, D))
@@ -103,6 +106,9 @@ def OneRedo(dA, dB, dC, dD):
 	t1 = t1 + t2
 	D = t3
 	lines.append(PrintTUpdate(3, "D", A, B, C, D, D))
+
+	D = t1
+	lines.append(PrintTUpdate(2, "D", A, B, C, D, D))
 
 	lines.append("<commit T1>" + PrintVars(A, B, C, D))
 	lines.append("<commit T2>" + PrintVars(A, B, C, D))
@@ -154,6 +160,9 @@ def OneUndoRedo(dA, dB, dC, dD):
 	lines.append(PrintTUpdateUR(3, "D", A, B, C, t3, D, t3))
 	D = t3
 
+	lines.append(PrintTUpdateUR(2, "D", A, B, C, t1, D, t1))	
+	D = t1
+	
 	lines.append("<commit T1>" + PrintVars(A, B, C, D))
 	lines.append("<commit T2>" + PrintVars(A, B, C, D))
 	lines.append("<commit T3>" + PrintVars(A, B, C, D))
