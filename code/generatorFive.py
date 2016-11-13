@@ -7,10 +7,10 @@ def PrintVars(A, B, C, D):
 	return " A " + str(A) + " B " + str(B) + " C " + str(C) + " D " + str(D) + "\n"
 
 def PrintTUpdate(T, V, A, B, C, D, VAL):
-	return "<T" + str(T) + ", " + V + ", " + str(VAL) + ">" + PrintVars(A, B, C, D)
+	return "<T" + str(T) + "," + V + "," + str(VAL) + ">" + PrintVars(A, B, C, D)
 
 def PrintTUpdateUR(T, V, A, B, C, D, OVAL, NVAL):
-	return "<T" + str(T) + ", " + V + ", " + str(OVAL) + ", " + \
+	return "<T" + str(T) + "," + V + "," + str(OVAL) + "," + \
 			str(NVAL) + ">" + PrintVars(A, B, C, D)
 
 def Undo(dA, dB, dC, dD):
