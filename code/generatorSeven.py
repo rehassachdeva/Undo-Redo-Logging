@@ -22,7 +22,7 @@ def Undo(dA, dB, dC, dD):
 	f = open('../log/7.txt_undo', 'w')
 	lines = []
 
-	lines.append("<start T1>" + PrintVars(A, B, C, D))
+	lines.append("<START T1>" + PrintVars(A, B, C, D))
 	t = A
 	t = t*2
 	lines.append(PrintTUpdate(1, "A", t, B, C, D, A))
@@ -31,7 +31,7 @@ def Undo(dA, dB, dC, dD):
 	t = t*2
 	lines.append(PrintTUpdate(1, "B", A, t, C, D, B))
 	B = t
-	lines.append("<start T2>" + PrintVars(A, B, C, D))
+	lines.append("<START T2>" + PrintVars(A, B, C, D))
 	t1 = C
 	t2 = D
 	t1 = t1 + t2
@@ -41,7 +41,7 @@ def Undo(dA, dB, dC, dD):
 	t1 = t1 + t2
 	lines.append(PrintTUpdate(2, "D", A, B, C, t1, D))
 	D = t1
-	lines.append("<start T3>" + PrintVars(A, B, C, D))
+	lines.append("<START T3>" + PrintVars(A, B, C, D))
 	t3 = D
 	t3 = t3 + 1	
 	lines.append(PrintTUpdate(3, "C", A, B, t3, D, C))
@@ -51,9 +51,9 @@ def Undo(dA, dB, dC, dD):
 	lines.append(PrintTUpdate(3, "D", A, B, C, t3, D))
 	D = t3
 	
-	lines.append("<commit T1>" + PrintVars(A, B, C, D))
-	lines.append("<commit T2>" + PrintVars(A, B, C, D))
-	lines.append("<commit T3>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T1>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T3>" + PrintVars(A, B, C, D))
 	
 	if A == AFC and B == BFC and C == CFC and D == DFC:
 		lines.append("7\n")
@@ -69,7 +69,7 @@ def Redo(dA, dB, dC, dD):
 	f = open('../log/7.txt_redo', 'w')
 	lines = []
 
-	lines.append("<start T1>" + PrintVars(A, B, C, D))
+	lines.append("<START T1>" + PrintVars(A, B, C, D))
 	t = A
 	t = t*2
 	A = t
@@ -78,8 +78,8 @@ def Redo(dA, dB, dC, dD):
 	t = t*2
 	B = t
 	lines.append(PrintTUpdate(1, "B", A, B, C, D, B))
-	lines.append("<commit T1>" + PrintVars(A, B, C, D))
-	lines.append("<start T2>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T1>" + PrintVars(A, B, C, D))
+	lines.append("<START T2>" + PrintVars(A, B, C, D))
 	t1 = C
 	t2 = D
 	t1 = t1 + t2
@@ -89,8 +89,8 @@ def Redo(dA, dB, dC, dD):
 	t1 = t1 + t2
 	D = t1
 	lines.append(PrintTUpdate(2, "D", A, B, C, D, D))
-	lines.append("<commit T2>" + PrintVars(A, B, C, D))
-	lines.append("<start T3>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
+	lines.append("<START T3>" + PrintVars(A, B, C, D))
 	t3 = D
 	t3 = t3 + 1
 	C = t3
@@ -99,7 +99,7 @@ def Redo(dA, dB, dC, dD):
 	t3 = t3 + 1
 	D = t3
 	lines.append(PrintTUpdate(3, "D", A, B, C, D, D))
-	lines.append("<commit T3>" + PrintVars(A, B, C, D))	
+	lines.append("<COMMIT T3>" + PrintVars(A, B, C, D))	
 	
 	if A == AFC and B == BFC and C == CFC and D == DFC:
 		lines.append("7\n")
@@ -115,7 +115,7 @@ def UndoRedo(dA, dB, dC, dD):
 	f = open('../log/7.txt_undoredo', 'w')
 	lines = []
 
-	lines.append("<start T1>" + PrintVars(A, B, C, D))
+	lines.append("<START T1>" + PrintVars(A, B, C, D))
 	t = A
 	t = t*2
 	lines.append(PrintTUpdateUR(1, "A", t, B, C, D, A, t))
@@ -124,7 +124,7 @@ def UndoRedo(dA, dB, dC, dD):
 	t = t*2
 	lines.append(PrintTUpdateUR(1, "B", A, t, C, D, B, t))
 	B = t
-	lines.append("<start T2>" + PrintVars(A, B, C, D))
+	lines.append("<START T2>" + PrintVars(A, B, C, D))
 	t1 = C
 	t2 = D
 	t1 = t1 + t2
@@ -134,7 +134,7 @@ def UndoRedo(dA, dB, dC, dD):
 	t1 = t1 + t2
 	lines.append(PrintTUpdateUR(2, "D", A, B, C, t1, D, t1))	
 	D = t1
-	lines.append("<start T3>" + PrintVars(A, B, C, D))
+	lines.append("<START T3>" + PrintVars(A, B, C, D))
 	t3 = D
 	t3 = t3 + 1
 	lines.append(PrintTUpdateUR(3, "C", A, B, t3, D, C, t3))
@@ -144,9 +144,9 @@ def UndoRedo(dA, dB, dC, dD):
 	lines.append(PrintTUpdateUR(3, "D", A, B, C, t3, D, t3))
 	D = t3
 
-	lines.append("<commit T1>" + PrintVars(A, B, C, D))
-	lines.append("<commit T2>" + PrintVars(A, B, C, D))
-	lines.append("<commit T3>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T1>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
+	lines.append("<COMMIT T3>" + PrintVars(A, B, C, D))
 	
 	if A == AFC and B == BFC and C == CFC and D == DFC:
 		lines.append("7\n")
