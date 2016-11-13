@@ -23,28 +23,28 @@ def Undo(dA, dB, dC, dD):
 	lines = []
 
 	lines.append("<start T1>" + PrintVars(A, B, C, D))
-	t = dA
+	t = A
 	t = t*2
 	lines.append(PrintTUpdate(1, "A", t, B, C, D, A))
 	A = t
-	t = dB
+	t = B
 	t = t*2
 	lines.append(PrintTUpdate(1, "B", A, t, C, D, B))
 	B = t
 	lines.append("<start T2>" + PrintVars(A, B, C, D))
-	t1 = dC
-	t2 = dD
+	t1 = C
+	t2 = D
 	t1 = t1 + t2
 	lines.append(PrintTUpdate(2, "C", A, B, t1, D, C))
 	C = t1
 	t1 = t1 - t2
 	t1 = t1 + t2
 	lines.append("<start T3>" + PrintVars(A, B, C, D))
-	t3 = dD
+	t3 = D
 	t3 = t3 + 1	
 	lines.append(PrintTUpdate(3, "C", A, B, t3, D, C))
 	C = t3
-	t3 = dC
+	t3 = C
 	t3 = t3 + 1
 	lines.append(PrintTUpdate(3, "D", A, B, C, t3, D))
 	D = t3
@@ -70,28 +70,28 @@ def Redo(dA, dB, dC, dD):
 	lines = []
 
 	lines.append("<start T1>" + PrintVars(A, B, C, D))
-	t = dA
+	t = A
 	t = t*2
 	A = t
 	lines.append(PrintTUpdate(1, "A", A, B, C, D, A))
-	t = dB
+	t = B
 	t = t*2
 	B = t
 	lines.append(PrintTUpdate(1, "B", A, B, C, D, B))
 	lines.append("<start T2>" + PrintVars(A, B, C, D))
-	t1 = dC
-	t2 = dD
+	t1 = C
+	t2 = D
 	t1 = t1 + t2
 	C = t1
 	lines.append(PrintTUpdate(2, "C", A, B, C, D, C))
 	t1 = t1 - t2
 	t1 = t1 + t2
 	lines.append("<start T3>" + PrintVars(A, B, C, D))
-	t3 = dD
+	t3 = D
 	t3 = t3 + 1
 	C = t3
 	lines.append(PrintTUpdate(3, "C", A, B, C, D, C))
-	t3 = dC
+	t3 = C
 	t3 = t3 + 1
 	D = t3
 	lines.append(PrintTUpdate(3, "D", A, B, C, D, D))
@@ -117,29 +117,29 @@ def UndoRedo(dA, dB, dC, dD):
 	lines = []
 
 	lines.append("<start T1>" + PrintVars(A, B, C, D))
-	t = dA
+	t = A
 	t = t*2
 	lines.append(PrintTUpdateUR(1, "A", t, B, C, D, A, t))
 	A = t
-	t = dB
+	t = B
 	t = t*2
 	lines.append(PrintTUpdateUR(1, "B", A, t, C, D, B, t))
 	B = t
 	lines.append("<commit T1>" + PrintVars(A, B, C, D))
 	lines.append("<start T2>" + PrintVars(A, B, C, D))
-	t1 = dC
-	t2 = dD
+	t1 = C
+	t2 = D
 	t1 = t1 + t2
 	lines.append(PrintTUpdateUR(2, "C", A, B, t1, D, C, t1))
 	C = t1
 	t1 = t1 - t2
 	t1 = t1 + t2
 	lines.append("<start T3>" + PrintVars(A, B, C, D))
-	t3 = dD
+	t3 = D
 	t3 = t3 + 1
 	lines.append(PrintTUpdateUR(3, "C", A, B, t3, D, C, t3))
 	C = t3
-	t3 = dC
+	t3 = C
 	t3 = t3 + 1
 	lines.append(PrintTUpdateUR(3, "D", A, B, C, t3, D, t3))
 	D = t3
