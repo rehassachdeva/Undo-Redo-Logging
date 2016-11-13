@@ -58,7 +58,7 @@ def Undo(dA, dB, dC, dD):
 	lines.append("<commit T2>" + PrintVars(A, B, C, D))
 	
 	if A == AFC and B == BFC and C == CFC and D == DFC:
-		lines.append("1\n")
+		lines.append("2\n")
 
 	f.writelines(lines)
 
@@ -107,7 +107,7 @@ def Redo(dA, dB, dC, dD):
 	lines.append("<commit T2>" + PrintVars(A, B, C, D))
 	
 	if A == AFC and B == BFC and C == CFC and D == DFC:
-		lines.append("1\n")
+		lines.append("2\n")
 
 	f.writelines(lines)
 
@@ -156,7 +156,7 @@ def UndoRedo(dA, dB, dC, dD):
 	lines.append("<commit T2>" + PrintVars(A, B, C, D))
 
 	if A == AFC and B == BFC and C == CFC and D == DFC:
-		lines.append("1\n")
+		lines.append("2\n")
 
 	f.writelines(lines)
 
