@@ -146,9 +146,9 @@ def UndoRedo(dA, dB, dC, dD):
 	t3 = t3 + 1
 	lines.append(PrintTUpdateUR(3, "D", A, B, C, t3, D, t3))
 	D = t3
-	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
 	lines.append("<COMMIT T3>" + PrintVars(A, B, C, D))
-
+	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
+	
 	if A == AFC and B == BFC and C == CFC and D == DFC:
 		lines.append("4\n")
 
