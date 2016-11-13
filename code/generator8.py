@@ -176,8 +176,8 @@ def OneUndoRedo(dA,dB,dC,dD):
 	lines.append(PrintTUpdateUR(3, "D", A, B, C, t3, D, t3))
 	D = t3
 	lines.append("<COMMIT T3>" + PrintVars(A, B, C, D))
-#	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
-#	dD = D
+	lines.append("<COMMIT T2>" + PrintVars(A, B, C, D))
+	dD = D
 
 	if A == AFC and B == BFC and C == CFC and D == DFC:
 		lines.append("8\n")
